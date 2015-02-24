@@ -1,0 +1,6 @@
+<select ng-model="masterRule" ng-options="value for value in ruleObject.ruleList"></select> of the following rules:
+<a href="javascript:void(0)" ng-click="addRules()">Add Rule</a>
+<a href="javascript:void(0)" ng-click="addRules()">Add Sub-Condition</a>
+<div ng-repeat="rule in ruleObject.rules">
+    <render-rules></render-rules>
+</div>
