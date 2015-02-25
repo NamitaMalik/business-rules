@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="myRuleEngine">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <script src="angular.min.js"></script>
+  <meta charset="UTF-8">
+  <script src="angular.min.js"></script>
+  <title>Business Rules</title>
 </head>
 <body ng-controller="FirstCtrl">
 <h1>Conditions and Actions Demo</h1>
 
 <h2>When these conditions are met...</h2>
 
-<render-sub-condition></render-sub-condition>
+<div ng-include="'subConditionTemplate.html'" onload="masterRule = 'all'"></div>
 <script src="ruleController.js"></script>
 </body>
 </html>

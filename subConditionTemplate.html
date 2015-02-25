@@ -1,6 +1,22 @@
-<select ng-model="masterRule" ng-options="value for value in ruleObject.ruleList"></select> of the following rules:
-<a href="javascript:void(0)" ng-click="addRules()">Add Rule</a>
-<a href="javascript:void(0)" ng-click="addRules()">Add Sub-Condition</a>
-<div ng-repeat="rule in ruleObject.rules">
-    <render-rules></render-rules>
-</div>
+<br />
+<select ng-model="masterRule" ng-options="value for value in ruleList"></select> of the following rules:
+<a href="javascript:void(0)" ng-click="addRules(rules[masterRule], false)">Add Rule</a>
+<a href="javascript:void(0)" ng-click="addRules(rules[masterRule], true)">Add Sub-Condition</a>
+<ul>
+  <li ng-repeat="rule in rules[masterRule]">
+    <div ng-if="rule.name">
+      <br/>
+      <select>
+        <option>user_id</option>
+        <option>promocode_usage_amount</option>
+      </select>
+      <select>
+        <option>present</option>
+        <option>equals</option>
+        <option>lessThan</option>
+      </select>
+      <a href="javascript:void(0)" ng-click="removeRule(rules[masterRule], $index)">Remove</a>
+    </div>
+    <div ng-if="rule.all" ng-include="'subConditionTemplate.html'" onload="rules = {all:[{name:'All'}]}"></div>
+  </li>
+</ul>
